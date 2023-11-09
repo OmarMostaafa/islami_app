@@ -6,8 +6,11 @@ import 'package:islami/home/hadeth/hadeth_details_screen.dart';
 import 'package:islami/home/quran/sura_details_screen.dart';
 import 'package:islami/my_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferences.getInstance();
   runApp(ChangeNotifierProvider(
       create: (context) => AppConfigProvider(), child: MyApp()));
 }
